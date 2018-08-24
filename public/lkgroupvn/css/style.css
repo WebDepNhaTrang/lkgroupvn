@@ -794,13 +794,17 @@ footer h3{
   color: #fff;
   text-transform: none;
   letter-spacing: 0;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 footer p{
   color: #fff;
   text-transform: none;
   letter-spacing: 0;
+}
+
+footer p .fa{
+  font-size: 16px;
 }
 
 footer .footer-social{

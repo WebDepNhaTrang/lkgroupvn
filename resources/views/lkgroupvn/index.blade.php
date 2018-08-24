@@ -1,12 +1,12 @@
 @extends('lkgroupvn.layouts.master')
 
-@section('title', setting('site.title'))
-@section('description', setting('site.description'))
+@section('title', setting('home.title'))
+@section('description', setting('home.description'))
 
 @section('fb_url', route('homepage'))
 @section('fb_type', 'website')
-@section('fb_title', setting('site.title'))
-@section('fb_des', setting('site.description'))
+@section('fb_title', setting('home.title'))
+@section('fb_des', setting('home.description'))
 @section('fb_img', '')
 
 @section('content')

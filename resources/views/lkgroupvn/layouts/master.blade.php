@@ -3,13 +3,31 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="keywords" content="">
-		<meta name="description" content="">
+		
 
 		<!-- Site title
 		================================================== -->
 		<title>@yield('description') | @yield('title')</title>
+
+		<meta name="description" content="@yield('description')">
+        <meta name="keywords" content="@yield('keywords')">
+        <meta name="author" content="KaTiSoft" />
+        <meta http-equiv="content-language" content="{{ app()->getLocale() }}" />
+        <meta name="robots" content="index, follow">
+        <meta name="revisit-after" content="3 days">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- FB Open Graph Tags -->
+        <meta property="fb:app_id"        content="" />
+        <meta property="og:url"           content="@yield('fb_url')" />
+        <meta property="og:type"          content="@yield('fb_type')" />
+        <meta property="og:title"         content="@yield('fb_title')" />
+        <meta property="og:description"   content="@yield('fb_des')" />
+        <meta property="og:image"         content="@yield('fb_img')" />
+        <meta property="og:site_name"     content="{{ setting('home.title') }}"/>
+
+        <link rel="shortcut icon" type="image/png" href="">
+        <!-- Place favicon.ico in the root directory -->
 
 		<!-- Bootstrap CSS
 		================================================== -->
@@ -41,12 +59,12 @@
 				<div class="row">
 					<div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
 				<div class="header-thumb">
-					@if(setting('site.logo'))
-						<img src="{{ Voyager::image( setting('site.logo') ) }}" alt="LK GROUPVN" style="width: 130px;">
+					@if(setting('home.logo'))
+						<img src="{{ Voyager::image( setting('home.logo') ) }}" alt="LK GROUPVN" style="width: 130px;">
 					@else
-						<h1 class="wow fadeIn" data-wow-delay="1.6s">{{ setting('site.title') }}</h1>
+						<h1 class="wow fadeIn" data-wow-delay="1.6s">{{ setting('home.title') }}</h1>
 					@endif
-					<h3 class="wow fadeInUp" data-wow-delay="1.9s">{{ setting('site.description') }}</h3>
+					<h3 class="wow fadeInUp" data-wow-delay="1.9s">{{ setting('home.description') }}</h3>
 				</div>
 					</div>
 				</div>
@@ -64,37 +82,25 @@
 		<footer class="footer-area section-gap">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-5 col-md-6 col-sm-6">
+					<div class="col-lg-6 col-md-6 col-sm-6">
 						<div class="single-footer-widget">
 							<h3>Về chúng tôi</h3>
 							<p>
 								LK COFFEE luôn muốn mang đến cho bạn một không gian yên tĩnh, đồ uống tuyệt vời để các bạn tận hưởng một ngày mới tràn năng lượng.
-							</p>
-							<p class="footer-text">
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Thiết kế <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a href="https://webdepnhatrang.com" target="_blank">KaTiSoft</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</p>								
+							</p>						
 						</div>
 					</div>
-					<div class="col-lg-5  col-md-6 col-sm-6">
+					<div class="col-lg-3 col-md-6 col-sm-6">
 						<div class="single-footer-widget">
-							<h3>Đăng ký voucher</h3>
-							<p>Để lại thông tin cho chúng tôi</p>
-							<div class="" id="mc_embed_signup">
-								<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-									<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-										<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-										<div style="position: absolute; left: -5000px;">
-											<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-										</div>
-
-									<div class="info pt-20"></div>
-								</form>
+							<h3>Liên hệ</h3>
+							<div>
+								<p><i class="fa fa-home"></i> Nha Trang, Khánh Hòa, Việt Nam</p>
+								<p><i class="fa fa-envelope"></i> email@gmail.com</p>
+								<p><i class="fa fa-phone"></i> (+84) 974 974 567</p>
 							</div>
 						</div>
 					</div>						
-					<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+					<div class="col-lg-3 col-md-6 col-sm-6 social-widget">
 						<div class="single-footer-widget">
 							<h3>Theo dõi chúng tôi</h3>
 							<div class="footer-social d-flex align-items-center">
@@ -105,6 +111,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Thi�
 							</div>
 						</div>
 					</div>							
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 text-center">
+						<p class="wow fadeInUp"  data-wow-delay="0.3s">Copyright © 2018 LK GROUP - Thiết kế bởi <a href="http://webdepnhatrang.com">KaTiSoft</a></p>
+					</div>
 				</div>
 			</div>
 		</footer>	

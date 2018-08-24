@@ -19,5 +19,6 @@ Route::get('/', function () {
     return view('lkgroupvn.index');
 })->name('homepage');
 
-
-
+Route::get('lkcoffee.html', function () {
+    return view('lkcoffee.index');
+})->name('lkcoffee');
