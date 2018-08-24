@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'administrator'], function () {
+    Voyager::routes();
 });
+
+Route::get('/', function () {
+    return view('lkgroupvn.index');
+});
+
+
+
