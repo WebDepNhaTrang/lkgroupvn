@@ -11,14 +11,13 @@
 
 @section('content')
 <!-- start banner Area -->
-<section class="banner-area" id="home">	
+<section class="banner-area" id="home" style="background: url({{ Voyager::image( setting('lkcoffee.banner_st_background') ) }}) center; background-size: cover;">	
     <div class="container">
         <div class="row fullscreen d-flex align-items-center justify-content-start">
             <div class="banner-content col-lg-7">
-                <h6 class="text-white text-uppercase">Cảm hứng cho ngày mới</h6>
+                <h6 class="text-white text-uppercase">{{ setting('lkcoffee.banner_st_heading') }}</h6>
                 <h1>
-                    Bắt đầu ngày mới <br>
-                    với cà phê				
+                    {{ setting('lkcoffee.banner_st_title') }}
                 </h1>
                 <!--a href="#" class="primary-btn text-uppercase">Buy Now</a-->
             </div>											
@@ -28,19 +27,20 @@
 <!-- End banner Area -->	
 
 <!-- Start video-sec Area -->
-<section class="video-sec-area pb-100 pt-40" id="about">
+<section class="video-sec-area pt-40" id="about">
     <div class="container">
         <div class="row justify-content-start align-items-center">
-            <div class="col-lg-6 video-right justify-content-center align-items-center d-flex">
+            <div class="col-lg-6 video-right justify-content-center align-items-center d-flex" style="background: url({{ Voyager::image(setting('lkcoffee.about_st_video_bg')) }}) no-repeat center; background-size: cover;">
                 <div class="overlay overlay-bg"></div>
-                <a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="{{ asset('lkcoffee/img/play-icon.png') }}" alt=""></a>
+                <a class="play-btn" href="{{ setting('lkcoffee.about_st_video_link') }}"><img class="img-fluid" src="{{ asset('lkcoffee/img/play-icon.png') }}" alt=""></a>
             </div>						
             <div class="col-lg-6 video-left">
-                <h6>Live Coffee making process.</h6>
-                <h1>LK COFFEE</h1>
-                <p><span>Chúng tôi ở đây để lắng nghe và mang đến cho bạn ly cà phê tuyệt vời nhất, bạn sẽ
-                có một ngày làm việc tuyệt vời với một ly cà phê chất lượng.</span></p>
-                <img class="img-fluid" src="{{ asset('lkcoffee/img/signature.png') }}" alt="">
+                <h6>{{ setting('lkcoffee.about_st_heading') }}</h6>
+                <h1>{{ setting('lkcoffee.about_st_title') }}</h1>
+                {!! setting('lkcoffee.about_st_content') !!}
+                @if(setting('lkcoffee.about_st_signature'))
+                <img class="img-fluid" src="{{ Voyager::image(setting('lkcoffee.about_st_signature')) }}" alt="">
+                @endif
             </div>
         </div>
     </div>	
@@ -48,13 +48,13 @@
 <!-- End video-sec Area -->
 
 <!-- Start menu Area -->
-<section class="menu-area section-gap" id="coffee">
+<section class="menu-area section-gap" id="coffee" style="padding: 100px 0 0 0;">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-60 col-lg-10">
+            <div class="menu-content pb-20 col-lg-10">
                 <div class="title text-center">
-                                <h1 class="mb-10">Menu hàng ngày của chúng tôi</h1>
-                                <p>Who are in extremely love with eco friendly system.</p>
+                    <h1 class="mb-10">{{ setting('lkcoffee.menu_st_title') }}</h1>
+                    <p>{{ setting('lkcoffee.menu_st_description') }}</p>
                 </div>
             </div>
         </div>		
@@ -70,397 +70,260 @@
 
             <!-- Tab content -->
             <div id="London" class="tabcontent">
-                            <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Cappuccino</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
+                @php 
+                    $menu_1 = getMenuCoffeeByCateId('*', 'created_at', 'asc', 1);
+                @endphp
+                @if($menu_1->count() > 0)
+                    <div class="row">
+                        @foreach($menu_1 as $v)
+                            <div class="col-lg-3">
+                                <div class="single-menu">
+                                    <div class="title-div justify-content-between d-flex">
+                                        <h4>{{ $v->name }}</h4>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Americano</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div><div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Cappuccino</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Americano</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div><div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Cappuccino</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Americano</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Ristretto</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Affogato</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>			
+                                    <p class="price">
+                                        {{ number_format($v->price, 0, '.', '.') }} VNĐ
+                                    </p>
+                                    {!! $v->body !!}								
+                                </div>
                             </div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
             <div id="Paris" class="tabcontent">
-                            <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Cappuccino</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
+                @php 
+                    $menu_2 = getMenuCoffeeByCateId('*', 'created_at', 'asc', 2);
+                @endphp
+                @if($menu_2->count() > 0)
+                    <div class="row">
+                        @foreach($menu_2 as $v)
+                            <div class="col-lg-3">
+                                <div class="single-menu">
+                                    <div class="title-div justify-content-between d-flex">
+                                        <h4>{{ $v->name }}</h4>
+                                        
                                     </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Americano</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Cappuccino</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Americano</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Cappuccino</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Americano</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
-                                    </div>
+                                    <p class="price">
+                                        {{ number_format($v->price, 0, '.', '.') }} VNĐ
+                                    </p>
+                                    {!! $v->body !!}								
+                                </div>
                             </div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
             <div id="Tokyo" class="tabcontent">
-                            <div class="row">
-                                    
-                                    <div class="col-lg-4">
-                                        <div class="single-menu">
-                                            <div class="title-div justify-content-between d-flex">
-                                                <h4>Americano</h4>
-                                                <p class="price float-right">
-                                                    $49
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Usage of the Internet is becoming more common due to rapid advance.
-                                            </p>								
-                                        </div>
+                @php 
+                    $menu_3 = getMenuCoffeeByCateId('*', 'created_at', 'asc', 3);
+                @endphp
+                @if($menu_3->count() > 0)
+                    <div class="row">
+                        @foreach($menu_3 as $v)
+                            <div class="col-lg-3">
+                                <div class="single-menu">
+                                    <div class="title-div justify-content-between d-flex">
+                                        <h4>{{ $v->name }}</h4>
+                                        
                                     </div>
-                                    
-                            </div>														
+                                    <p class="price">
+                                        {{ number_format($v->price, 0, '.', '.') }} VNĐ
+                                    </p>
+                                    {!! $v->body !!}								
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif													
             </div>
             <div id="Tokyo1" class="tabcontent">
-                <div class="col-lg-4">
-                    <div class="single-menu">
-                        <div class="title-div justify-content-between d-flex">
-                            <h4>Cappuccino</h4>
-                            <p class="price float-right">
-                                $49
-                            </p>
-                        </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advance.
-                        </p>								
+                @php 
+                    $menu_4 = getMenuCoffeeByCateId('*', 'created_at', 'asc', 4);
+                @endphp
+                @if($menu_4->count() > 0)
+                    <div class="row">
+                        @foreach($menu_4 as $v)
+                            <div class="col-lg-3">
+                                <div class="single-menu">
+                                    <div class="title-div justify-content-between d-flex">
+                                        <h4>{{ $v->name }}</h4>
+                                        
+                                    </div>
+                                    <p class="price">
+                                        {{ number_format($v->price, 0, '.', '.') }} VNĐ
+                                    </p>
+                                    {!! $v->body !!}								
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                </div>
+                @endif
             </div>
             <div id="Tokyo2" class="tabcontent">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="single-menu">
-                            <div class="title-div justify-content-between d-flex">
-                                <h4>Macchiato</h4>
-                                <p class="price float-right">
-                                    $49
-                                </p>
+                @php 
+                    $menu_5 = getMenuCoffeeByCateId('*', 'created_at', 'asc', 5);
+                @endphp
+                @if($menu_5->count() > 0)
+                    <div class="row">
+                        @foreach($menu_5 as $v)
+                            <div class="col-lg-3">
+                                <div class="single-menu">
+                                    <div class="title-div justify-content-between d-flex">
+                                        <h4>{{ $v->name }}</h4>
+                                    </div>
+                                    <p class="price">
+                                        {{ number_format($v->price, 0, '.', '.') }} VNĐ
+                                    </p>
+                                    {!! $v->body !!}								
+                                </div>
                             </div>
-                            <p>
-                                Usage of the Internet is becoming more common due to rapid advance.
-                            </p>								
-                        </div>
+                        @endforeach
                     </div>
-                </div>
+                @endif
             </div>
             <div id="Tokyo3" class="tabcontent">
-                <div class="col-lg-4">
-                    <div class="single-menu">
-                        <div class="title-div justify-content-between d-flex">
-                            <h4>Americano</h4>
-                            <p class="price float-right">
-                                $49
-                            </p>
-                        </div>
-                        <p>
-                            Usage of the Internet is becoming more common due to rapid advance.
-                        </p>								
+                @php 
+                    $menu_6 = getMenuCoffeeByCateId('*', 'created_at', 'asc', 6);
+                @endphp
+                @if($menu_6->count() > 0)
+                    <div class="row">
+                        @foreach($menu_6 as $v)
+                            <div class="col-lg-3">
+                                <div class="single-menu">
+                                    <div class="title-div justify-content-between d-flex">
+                                        <h4>{{ $v->name }}</h4>
+                                        
+                                    </div>
+                                    <p class="price">
+                                        {{ number_format($v->price, 0, '.', '.') }} VNĐ
+                                    </p>
+                                    {!! $v->body !!}								
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                </div>
+                @endif
             </div>
     </div>	
 </section>
 <!-- End menu Area -->
 
 <!-- Start gallery Area -->
-<section class="gallery-area section-gap" id="gallery">
+<section class="gallery-area section-gap" id="gallery" style="padding: 100px 0 0 0;">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-60 col-lg-10">
+            <div class="menu-content pb-20 col-lg-10">
                 <div class="title text-center">
-                    <h1 class="mb-10">GELLARY</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
+                    <h1 class="mb-10">{{ setting('lkcoffee.gallery_st_title') }}</h1>
+                    <p>{{ setting('lkcoffee.gallery_st_description') }}</p>
                 </div>
             </div>
         </div>						
         <div class="row">
-            <div class="col-lg-4">
-                <a href="img/g1.jpg" class="img-pop-home">
-                    <img class="img-fluid" src="{{ asset('lkcoffee/img/g1.jpg') }}" alt="">
-                </a>	
-                <a href="img/g2.jpg" class="img-pop-home">
-                    <img class="img-fluid" src="{{ asset('lkcoffee/img/g2.jpg') }}" alt="">
-                </a>	
+            <div class="col-md-12">
+                <div id="image-grid"></div>
             </div>
-            <div class="col-lg-8">
-                <a href="img/g3.jpg" class="img-pop-home">
-                    <img class="img-fluid" src="{{ asset('lkcoffee/img/g3.jpg') }}" alt="">
-                </a>	
-                <div class="row">
-                    <div class="col-lg-6">
-                        <a href="img/g4.jpg" class="img-pop-home">
-                            <img class="img-fluid" src="{{ asset('lkcoffee/img/g4.jpg') }}" alt="">
-                        </a>	
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="img/g5.jpg" class="img-pop-home">
-                            <img class="img-fluid" src="{{ asset('lkcoffee/img/g5.jpg') }}" alt="">
-                        </a>	
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>	
 </section>
 <!-- End gallery Area -->
 
 <!-- Start review Area -->
-<section class="review-area section-gap" id="review">
+<section class="review-area section-gap" id="review" style="padding: 50px 0 50px 0;">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-60 col-lg-10">
+            <div class="menu-content pb-20 col-lg-10">
                 <div class="title text-center">
-                    <h1 class="mb-10">Danh ngôn về cà phê</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
+                    <h1 class="mb-10">{{ setting('lkcoffee.maxim_st_title') }}</h1>
+                    <p>{{ setting('lkcoffee.maxim_st_description') }}</p>
                 </div>
             </div>
-        </div>						
+        </div>		
+        @php
+            $maxims = getMaximCoffee('*', 'created_at', 'desc', 4);
+        @endphp		
+        @if($maxims->count() >0)		
         <div class="row">
-            <div class="col-lg-6 col-md-6 single-review">
-                <img src="{{ asset('lkcoffee/img/r1.png') }}" alt="">
+            @foreach($maxims as $v)
+            <div class="col-lg-6 col-md-6 single-review pb-30">
+                <img src="{{ Voyager::image($v->logo) }}" alt="">
                 <div class="title d-flex flex-row">
-                    <h4>Khuyết danh</h4>
+                    <h4>{{ $v->name }}</h4>
                     <div class="star">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>								
+                        {!! renderStar($v->star) !!}					
                     </div>
                 </div>
-                <p>
-                    Một ly cà phê ngon là phải vừa ngọt vừa đắng. Một tình yêu lý tưởng là một tình yêu vừa ngọt ngào, vừa đắng cay.
-                </p>
-            </div>	
-            <div class="col-lg-6 col-md-6 single-review">
-                <img src="{{ asset('lkcoffee/img/r2.png') }}" alt="">
-                <div class="title d-flex flex-row">
-                    <h4>Jonathan Swift</h4>
-                    <div class="star">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>								
-                    </div>
-                </div>
-                <p>
-                    Cà phê khiến ta mạnh mẽ, nghiêm nghị và thông thái.
-                </p>
-            </div>	
+                {!! $v->body !!}
+            </div>
+            @endforeach
         </div>
+        @endif
     </div>	
 </section>
 <!-- End review Area -->
 
 <!-- Start blog Area -->
-<section class="blog-area section-gap" id="blog">
+<section class="blog-area section-gap" id="blog" style="padding: 100px 0 50px 0;">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-60 col-lg-10">
+            <div class="menu-content pb-20 col-lg-10">
                 <div class="title text-center">
-                    <h1 class="mb-10">Ý tưởng cho ngày mới</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
+                    <h1 class="mb-10">{{ setting('lkcoffee.blog_st_title') }}</h1>
+                    <p>{{ setting('lkcoffee.blog_st_description') }}</p>
                 </div>
             </div>
-        </div>						
+        </div>					
+        @php
+            $blogs = getBlogCoffee('*', 'created_at', 'desc', 2);
+        @endphp	
+        @if($blogs->count()>0)
         <div class="row">
+            @foreach($blogs as $v)
             <div class="col-lg-6 col-md-6 single-blog">
-                <img class="img-fluid" src="{{ asset('lkcoffee/img/b1.jpg') }}" alt="">
-                <ul class="post-tags">
+                <img class="img-fluid" src="{{ Voyager::image($v->image) }}" alt="">
+                <!-- <ul class="post-tags">
                     <li><a href="#">Travel</a></li>
                     <li><a href="#">Life Style</a></li>
-                </ul>
-                <a href="#"><h4>Ralph Waldo Emerson</h4></a>
-                <p>
-                    Một ly cà phê ngon là phải vừa ngọt vừa đắng. Một tình yêu lý tưởng là một tình yêu vừa ngọt ngào, vừa đắng cay.
-
-                </p>
+                </ul> -->
+                <!-- <a href="#"> -->
+                    <h4 class="pt-10">{{ $v->title }}</h4>
+                <!-- </a> -->
+                {!! $v->body !!}
                 <p class="post-date">
-                    31st January, 2018
+                    {{ $v->created_at->format('d-m-Y') }}
                 </p>
             </div>
-            <div class="col-lg-6 col-md-6 single-blog">
-                <img class="img-fluid" src="{{ asset('lkcoffee/img/b2.jpg') }}" alt="">
-                <ul class="post-tags">
-                    <li><a href="#">Travel</a></li>
-                    <li><a href="#">Life Style</a></li>
-                </ul>
-                <a href="#"><h4>Portable latest Fashion for young women</h4></a>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
-                </p>
-                <p class="post-date">
-                    31st January, 2018
-                </p>
-            </div>						
+            @endforeach					
         </div>
+        @endif
     </div>	
 </section>
 <!-- End blog Area -->
+@endsection
+
+@section('script')
+    <!-- Insert script here -->
+    @php
+        $gallery_coffee = getGalleryBySlug('gallery-for-lkcoffee-page');
+        if($gallery_coffee){
+            $galleries = json_decode($gallery_coffee->gallery);
+        }
+        else{
+            $galleries = [];
+        }
+    @endphp
+    <script>
+        var images = [
+            @foreach($galleries as $v)
+                '{{ Voyager::image($v) }}',
+            @endforeach
+        ];
+        $(function() {
+            $('#image-grid').imagesGrid({
+                images: images
+            });
+        });
+    </script>
 @endsection

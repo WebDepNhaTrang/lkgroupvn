@@ -60,11 +60,11 @@
 					<div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
 				<div class="header-thumb">
 					@if(setting('home.logo'))
-						<img src="{{ Voyager::image( setting('home.logo') ) }}" alt="LK GROUPVN" style="width: 130px;">
+						<img class="wow fadeIn" data-wow-delay="1s" src="{{ Voyager::image( setting('home.logo') ) }}" alt="LK GROUPVN" style="width: 130px;">
 					@else
-						<h1 class="wow fadeIn" data-wow-delay="1.6s">{{ setting('home.title') }}</h1>
+						<h1 class="wow fadeIn" data-wow-delay="1s">{{ setting('home.title') }}</h1>
 					@endif
-					<h3 class="wow fadeInUp" data-wow-delay="1.9s">{{ setting('home.description') }}</h3>
+					<h3 class="wow fadeInUp" data-wow-delay="1.3s">{{ setting('home.description') }}</h3>
 				</div>
 					</div>
 				</div>
@@ -79,7 +79,7 @@
 
 
 		<!-- start footer Area -->		
-		<footer class="footer-area section-gap">
+		<!-- <footer class="footer-area section-gap">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6">
@@ -120,7 +120,8 @@
 					</div>
 				</div>
 			</div>
-		</footer>	
+		</footer>	 -->
+		{!! setting('home.footer') !!}
 		<!-- End footer Area -->	
 
 

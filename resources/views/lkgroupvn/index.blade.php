@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="col-md-12 col-sm-12">     
 				<!-- iso section -->
-				<div class="iso-section wow fadeInUp" data-wow-delay="2.6s">
+				<div class="iso-section wow fadeInUp" data-wow-delay="1.6s">
 						<!-- iso box section -->
 						<div class="iso-box-section wow fadeInUp" data-wow-delay="1s">
 							<div class="iso-box-wrapper col4-iso-box">
@@ -26,7 +26,7 @@
 										<img src="{{ Voyager::image( setting('home.box1_image') ) }}" class="img-responsive" alt="Portfolio">
 										<div class="portfolio-display">
 											<div class="portfolio-item">
-												<h2 style="margin-top: 25%;"> {{ setting('home.box1_title') }}</h2>	
+												<h2> {{ setting('home.box1_title') }}</h2>	
 											</div>
 										</div>
 										<div class="portfolio-overlay">
@@ -42,7 +42,7 @@
 										<img src="{{ Voyager::image( setting('home.box2_image') ) }}" class="img-responsive" alt="Portfolio">
 										<div class="portfolio-display">
 											<div class="portfolio-item">
-												<h2 style="margin-top: 25%;"> {{ setting('home.box2_title') }}</h2>	
+												<h2> {{ setting('home.box2_title') }}</h2>	
 											</div>
 										</div>
 										<div class="portfolio-overlay">
@@ -58,7 +58,7 @@
 										<img src="{{ Voyager::image( setting('home.box3_image') ) }}" class="img-responsive" alt="Portfolio">
 										<div class="portfolio-display">
 											<div class="portfolio-item">
-												<h2 style="margin-top: 25%;"> {{ setting('home.box3_title') }}</h2>	
+												<h2> {{ setting('home.box3_title') }}</h2>	
 											</div>
 										</div>
 										<div class="portfolio-overlay">
@@ -75,7 +75,7 @@
 										<img src="{{ Voyager::image( setting('home.box4_image') ) }}" class="img-responsive" alt="Portfolio">
 										<div class="portfolio-display">
 											<div class="portfolio-item">
-												<h2 style="margin-top: 25%;"> {{ setting('home.box4_title') }}</h2>	
+												<h2> {{ setting('home.box4_title') }}</h2>	
 											</div>
 										</div>
 										<div class="portfolio-overlay">
@@ -91,7 +91,7 @@
 										<img src="{{ Voyager::image( setting('home.box5_image') ) }}" class="img-responsive" alt="Portfolio">
 										<div class="portfolio-display">
 											<div class="portfolio-item">
-												<h2 style="margin-top: 25%;"> {{ setting('home.box5_title') }}</h2>	
+												<h2> {{ setting('home.box5_title') }}</h2>	
 											</div>
 										</div>
 										<div class="portfolio-overlay">

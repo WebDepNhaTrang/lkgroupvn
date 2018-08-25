@@ -29,52 +29,35 @@
         <!--
         CSS
         ============================================= -->
-        <link rel="stylesheet" href="{{ ('lkcoffee/css/linearicons.css') }}">
-        <link rel="stylesheet" href="{{ ('lkcoffee/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ ('lkcoffee/css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ ('lkcoffee/css/magnific-popup.css') }}">
-        <link rel="stylesheet" href="{{ ('lkcoffee/css/nice-select.css') }}">					
-        <link rel="stylesheet" href="{{ ('lkcoffee/css/animate.min.css') }}">
-        <link rel="stylesheet" href="{{ ('lkcoffee/css/owl.carousel.css') }}">
-        <link rel="stylesheet" href="{{ ('lkcoffee/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('lkcoffee/css/linearicons.css') }}">
+        <link rel="stylesheet" href="{{ asset('lkcoffee/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('lkcoffee/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('lkcoffee/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('lkcoffee/css/nice-select.css') }}">					
+        <link rel="stylesheet" href="{{ asset('lkcoffee/css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('lkcoffee/css/owl.carousel.css') }}">
+        <!-- Image Grid  -->
+        <link rel="stylesheet" href="{{ asset('lkcoffee/css/images-grid.css') }}">
+        <link rel="stylesheet" href="{{ asset('lkcoffee/css/main.css') }}">
     </head>
     <body>
         <header id="header" id="home">
-        <!-- <div class="header-top">
             <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-lg-8 col-sm-4 col-8 header-top-right no-padding">
-                        <ul>
-                            <li>
-                                Mon-Fri: 8am to 2pm
-                            </li>
-                            <li>
-                                Sat-Sun: 11am to 4pm
-                            </li>
-                            <li>
-                                <a href="tel:(012) 6985 236 7512">0974 974 567</a>
-                            </li>				  					
-                        </ul>
+                <div class="row align-items-center justify-content-between d-flex">
+                    <div id="logo">
+                    <a href="#"><img src="{{ Voyager::image(setting('lkcoffee.logo')) }}" alt="" title="" /></a>
                     </div>
-                </div>			  					
-            </div>
-        </div>			  	 -->
-        <div class="container">
-            <div class="row align-items-center justify-content-between d-flex">
-                <div id="logo">
-                <a href="#"><img src="{{ asset('lkcoffee/img/logo.png') }}" alt="" title="" /></a>
+                    <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li class="menu-active"><a href="#home">Trang chủ</a></li>
+                        <li><a href="#about">Giới thiệu</a></li>
+                        <li><a href="#coffee">Menu</a></li>
+                        <li><a href="#review">Thông điệp</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                    </nav><!-- #nav-menu-container -->		    		
                 </div>
-                <nav id="nav-menu-container">
-                <ul class="nav-menu">
-                    <li class="menu-active"><a href="#home">Trang chủ</a></li>
-                    <li><a href="#about">Giới thiệu</a></li>
-                    <li><a href="#coffee">Menu</a></li>
-                    <li><a href="#review">Thông điệp</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                </ul>
-                </nav><!-- #nav-menu-container -->		    		
             </div>
-        </div>
         </header><!-- #header -->
 
 
@@ -82,9 +65,9 @@
         
 
         <!-- start footer Area -->		
-        <footer class="footer-area section-gap">
+        <footer class="footer-area section-gap" style="background: url({{ Voyager::image(setting('lkcoffee.footer_st_bg')) }}) center; background-size: cover; padding: 200px 0 50px 0;">
             <div class="container">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-5 col-md-6 col-sm-6">
                         <div class="single-footer-widget">
                             <h6>Về chúng tôi</h6>
@@ -92,27 +75,18 @@
                                 LK COFFEE luôn muốn mang đến cho bạn một không gian yên tĩnh, đồ uống tuyệt vời để các bạn tận hưởng một ngày mới tràn năng lượng.
                             </p>
                             <p class="footer-text">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Thiết kế <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a href="https://webdepnhatrang.com" target="_blank">KaTiSoft</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Thiết kế <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a href="https://webdepnhatrang.com" target="_blank">KaTiSoft</a>
                             </p>								
                         </div>
                     </div>
                     <div class="col-lg-5  col-md-6 col-sm-6">
                         <div class="single-footer-widget">
-                            <h6>Đăng ký voucher</h6>
-                            <p>Để lại thông tin cho chúng tôi</p>
-                            <div class="" id="mc_embed_signup">
-                                <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-                                    <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-                                        <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-                                        <div style="position: absolute; left: -5000px;">
-                                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                                        </div>
-
-                                    <div class="info pt-20"></div>
-                                </form>
-                            </div>
+                            <h6>Liên hệ</h6>
+							<div>
+								<p><i class="fa fa-home"></i> Nha Trang, Khánh Hòa, Việt Nam</p>
+								<p><i class="fa fa-envelope"></i> email@gmail.com</p>
+								<p><i class="fa fa-phone"></i> (+84) 974 974 567</p>
+							</div>
                         </div>
                     </div>						
                     <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
@@ -127,7 +101,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Thi�
                             </div>
                         </div>
                     </div>							
-                </div>
+                </div> -->
+                {!! setting('lkcoffee.footer_st_content') !!}
+                <p class="footer-text">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> Thiết kế <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a href="https://webdepnhatrang.com" target="_blank">KaTiSoft</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>		
             </div>
         </footer>	
         <!-- End footer Area -->	
@@ -146,25 +126,29 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Thi�
         <script src="{{ asset('lkcoffee/js/jquery.nice-select.min.js') }}"></script>			
         <script src="{{ asset('lkcoffee/js/parallax.min.js') }}"></script>	
         <script src="{{ asset('lkcoffee/js/waypoints.min.js') }}"></script>
+        <!-- Images Grid -->
+        <script src="{{ asset('lkcoffee/js/images-grid.js') }}"></script>
         <script src="{{ asset('lkcoffee/js/jquery.counterup.min.js') }}"></script>					
         <!-- <script src="js/mail-script.js"></script>	 -->
         <script src="{{ asset('lkcoffee/js/main.js') }}"></script>	
+        @yield('script')
         <script>
             
-            function openCity(evt, cityName) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none";
+                function openCity(evt, cityName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
                 }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-                document.getElementById(cityName).style.display = "block";
-                evt.currentTarget.className += " active";
-            }
-        document.getElementById("tabdefault").click();
-    </script>
+            document.getElementById("tabdefault").click();
+        </script>
+        
     </body>
 </html>
