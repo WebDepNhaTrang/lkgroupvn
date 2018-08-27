@@ -62,10 +62,10 @@
             <div class="tab">
                 <button class="tablinks" id="tabdefault" onclick="openCity(event, 'London')">Đồ uống</button>
                 <button class="tablinks" onclick="openCity(event, 'Paris')">Thức ăn nhanh</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Xuân</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo1')">Hạ</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo2')">Thu</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo3')">Đông</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Mùa Xuân</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo1')">Mùa Hạ</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo2')">Mùa Thu</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo3')">Mùa Đông</button>
             </div>
 
             <!-- Tab content -->
@@ -210,7 +210,7 @@
 <!-- End menu Area -->
 
 <!-- Start gallery Area -->
-<section class="gallery-area section-gap" id="gallery" style="padding: 100px 0 0 0;">
+<section class="gallery-area section-gap" id="gallery" style="padding: 100px 0 0 0; margin-bottom: 20px">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-20 col-lg-10">
@@ -247,8 +247,8 @@
         @if($maxims->count() >0)		
         <div class="row">
             @foreach($maxims as $v)
-            <div class="col-lg-6 col-md-6 single-review pb-30">
-                <img src="{{ Voyager::image($v->logo) }}" alt="">
+            <div class="col-lg-6 col-md-6 single-review pb-30 threecolumn">
+                <!--img src="{{ Voyager::image($v->logo) }}" alt=""-->
                 <div class="title d-flex flex-row">
                     <h4>{{ $v->name }}</h4>
                     <div class="star">

@@ -490,11 +490,11 @@ a.icon {
 }
 
 #portfolio .portfolio-thumb .portfolio-display h2{
-    color: #393BB0;
-    margin-top: 15%;
-    font-size: 20px;
-    font-weight: bold;
-    text-shadow: 1px 2px 1px #869287;
+  color: #EEE;
+  margin-top: 15%;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 3px 2px 1px #869287;
 }
 
 #portfolio .portfolio-thumb:hover .portfolio-display {

@@ -51,9 +51,9 @@
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="#home">Trang chủ</a></li>
                         <li><a href="#about">Giới thiệu</a></li>
-                        <li><a href="#coffee">Menu</a></li>
+                        <li><a href="#coffee">Thực đơn</a></li>
                         <li><a href="#review">Thông điệp</a></li>
-                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#blog">Ý tưởng</a></li>
                     </ul>
                     </nav><!-- #nav-menu-container -->		    		
                 </div>

@@ -11,7 +11,6 @@
 /* Style the tab */
 .tab {
     overflow: hidden;
-    border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
 
@@ -40,8 +39,6 @@
 .tabcontent {
     display: none;
     padding: 12px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
 }
 
 .tabcontent {
@@ -52,6 +49,11 @@
 @keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+/*Chia 3 cột ở phần danh ngôn cà phê*/
+.threecolumn{
+    max-width: 33%;
 }
 /*Khánh thêm vào test*/
 
