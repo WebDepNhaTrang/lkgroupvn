@@ -247,7 +247,7 @@
         @if($maxims->count() >0)		
         <div class="row">
             @foreach($maxims as $v)
-            <div class="col-lg-6 col-md-6 single-review pb-30 threecolumn">
+            <div class="col-lg-4 col-md-4 single-review pb-30">
                 <!--img src="{{ Voyager::image($v->logo) }}" alt=""-->
                 <div class="title d-flex flex-row">
                     <h4>{{ $v->name }}</h4>
