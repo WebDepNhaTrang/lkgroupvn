@@ -2806,3 +2806,42 @@ body.mobile-nav-active #mobile-nav-toggle {
 .switch-wrap p {
   margin: 0;
 }
+
+.portfolio-menu {
+  margin-bottom: 30px;
+}
+
+.portfolio-menu button.active::before {
+  background: #296dc1;
+}
+
+.portfolio-menu button.active {
+  background: #0552b1;
+}
+
+.portfolio-menu button::before {
+  position: absolute;
+  right: -30px;
+  top: 0;
+  z-index: -9;
+  width: 55px;
+  height: 100%;
+  background: #0552b1;
+  content: "";
+  transform: skew(-48deg);
+  -webkit-transform: skew(-48deg);
+  -moz-transform: skew(-48deg);
+}
+
+.portfolio-menu button {
+  position: relative;
+  padding: 7px 25px;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  background: #296dc1;
+  overflow: hidden;
+  z-index: 9;
+  cursor: pointer;
+}

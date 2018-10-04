@@ -39,6 +39,7 @@
         <!-- Image Grid  -->
         <link rel="stylesheet" href="{{ asset('lkcoffee/css/images-grid.css') }}">
         <link rel="stylesheet" href="{{ asset('lkcoffee/css/main.css') }}">
+        @yield('style')
     </head>
     <body>
         <header id="header" id="home">

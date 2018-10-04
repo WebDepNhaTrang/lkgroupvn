@@ -80,3 +80,15 @@ if(! function_exists('getGalleryBySlug')){
         return $item;
     }
 }
+
+/*
+ * @slug: string
+ * 
+ */
+if(! function_exists('getAllGalleries')){
+    function getAllGalleries(){
+        $item = App\Gallery::all();
+        return $item;
+    }
+}
+

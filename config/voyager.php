@@ -165,6 +165,9 @@ return [
             'TCG\\Voyager\\Widgets\\PageDimmer',
         ],
 
+        'data_tables' => [
+            "lengthMenu" => [ [50, 100, 150, -1], [50, 100, 150, "All"] ]
+        ],
     ],
 
     /*

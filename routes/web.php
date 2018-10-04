@@ -22,3 +22,5 @@ Route::get('/', function () {
 Route::get('lkcoffee.html', function () {
     return view('lkcoffee.index');
 })->name('lkcoffee');
+
+Route::post('getGalleryBySlug',['uses' => 'FrontendController@getGalleryBySlug', 'as' => 'post.getGalleryBySlug']);

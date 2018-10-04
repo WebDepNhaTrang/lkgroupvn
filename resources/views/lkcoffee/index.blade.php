@@ -9,6 +9,10 @@
 @section('fb_des', setting('lkcoffee.description'))
 @section('fb_img', '')
 
+@section('style')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+
 @section('content')
 <!-- start banner Area -->
 <section class="banner-area" id="home" style="background: url({{ Voyager::image( setting('lkcoffee.banner_st_background') ) }}) center; background-size: cover;">	
@@ -219,13 +223,31 @@
                     <p>{{ setting('lkcoffee.gallery_st_description') }}</p>
                 </div>
             </div>
-        </div>						
+        </div>	
+        @php
+            $all_galleries = getAllGalleries();
+        @endphp
+        @if($all_galleries)
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portfolio-menu text-center">
+                    @foreach($all_galleries as $k => $v)
+                        @php
+                            if($k == 0){
+                                $first_slug = $v->slug;
+                            }
+                        @endphp
+                    <button data-filter="{{ $v->slug }}" class="{{ ($k==0)?'active':'' }}">{{ $v->name }}</button>
+                    @endforeach
+                </div>
+            </div>
+        </div>		
         <div class="row">
             <div class="col-md-12">
                 <div id="image-grid"></div>
             </div>
-            
         </div>
+        @endif
     </div>	
 </section>
 <!-- End gallery Area -->
@@ -306,7 +328,7 @@
 @section('script')
     <!-- Insert script here -->
     @php
-        $gallery_coffee = getGalleryBySlug('gallery-for-lkcoffee-page');
+        $gallery_coffee = getGalleryBySlug($first_slug);
         if($gallery_coffee){
             $galleries = json_decode($gallery_coffee->gallery);
         }
@@ -325,5 +347,38 @@
                 images: images
             });
         });
+
+        // Ajax Gallery
+        $(".portfolio-menu button").on('click', function(e){
+            e.preventDefault();
+
+            var slug = $(this).data('filter');
+            $(this).addClass('active').siblings().removeClass('active');
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('post.getGalleryBySlug') }}',
+                method: 'POST',
+                data: {
+                    slug: slug
+                },
+                success: function(data) {
+                    // console.log(data.data);
+                    if(data.status == true){
+                        var obj = data.data;
+                        $(function() {
+                            $('#image-grid').imagesGrid({
+                                images: obj
+                            });
+                        });
+                    }
+                }
+            });
+        });
+        // END Ajax Gallery
     </script>
 @endsection
