@@ -304,15 +304,16 @@
         <div class="row">
             @foreach($blogs as $v)
             <div class="col-lg-6 col-md-6 single-blog">
-                <img class="img-fluid" src="{{ Voyager::image($v->image) }}" alt="">
-                <!-- <ul class="post-tags">
-                    <li><a href="#">Travel</a></li>
-                    <li><a href="#">Life Style</a></li>
-                </ul> -->
-                <!-- <a href="#"> -->
+                <a class="view-blog" data-id="{{ $v->id }}" href="#">
+                    <img class="img-fluid" src="{{ Voyager::image($v->image) }}" alt="">
+                </a>
+                <a class="view-blog" data-id="{{ $v->id }}" href="#">
                     <h4 class="pt-10">{{ $v->title }}</h4>
-                <!-- </a> -->
-                {!! $v->body !!}
+                </a>
+                <div class="description" style="max-height: 65px;overflow: hidden;">
+                    {!! $v->body !!}
+                </div>
+                
                 <p class="post-date">
                     {{ $v->created_at->format('d-m-Y') }}
                 </p>
@@ -323,6 +324,29 @@
     </div>	
 </section>
 <!-- End blog Area -->
+
+<!-- Begin Popup Blog Detail -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="exampleModalImg" style="float:left; width: 50%; padding: 0 10px 0 0;"></div>
+        <div id="exampleModalBody"></div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- Begin Popup Blog Detail -->
 @endsection
 
 @section('script')
@@ -337,6 +361,7 @@
         }
     @endphp
     <script>
+        // Default Gallery
         var images = [
             @foreach($galleries as $v)
                 '{{ Voyager::image($v) }}',
@@ -347,6 +372,7 @@
                 images: images
             });
         });
+        // END Default Gallery
 
         // Ajax Gallery
         $(".portfolio-menu button").on('click', function(e){
@@ -380,5 +406,34 @@
             });
         });
         // END Ajax Gallery
+
+        // AJAX Read Blog
+        $(".view-blog").on('click', function(e){
+            e.preventDefault();
+            var id = $(this).data("id");
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '{{ route('post.getBlogById') }}',
+                method: 'POST',
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    console.log(data.data);
+                    if(data.status == true){
+                        $("#exampleModalLongTitle").html(data.data.title);
+                        $("#exampleModalImg").html('<img  src="'+ data.data.image +'" alt="" class="img-fluid">');
+                        $("#exampleModalBody").html(data.data.body);
+                        $("#exampleModalCenter").modal('show');
+                    }
+                }
+            });
+        });
+        // END AJAX Read Blog
     </script>
 @endsection

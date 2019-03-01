@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gallery;
+use App\BlogCoffee;
 use Voyager;
 
 class FrontendController extends Controller
@@ -23,6 +24,23 @@ class FrontendController extends Controller
             return response()->json([
                 'status' => true,
                 'data'   => $gallery
+            ]);
+		}
+    }
+
+    public function getBlogById(Request $request){
+        if ($request->ajax()) {
+            $item = BlogCoffee::select('*')
+                ->where('id', $request->id)
+                ->first();
+
+            if($item){
+                $item->image = Voyager::image($item->image);
+            }
+            
+            return response()->json([
+                'status' => true,
+                'data'   => $item
             ]);
 		}
     }

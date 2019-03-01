@@ -24,3 +24,4 @@ Route::get('lkcoffee.html', function () {
 })->name('lkcoffee');
 
 Route::post('getGalleryBySlug',['uses' => 'FrontendController@getGalleryBySlug', 'as' => 'post.getGalleryBySlug']);
+Route::post('getBlogById',['uses' => 'FrontendController@getBlogById', 'as' => 'post.getBlogById']);
